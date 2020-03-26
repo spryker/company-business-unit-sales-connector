@@ -27,7 +27,7 @@ class UpdateOrderCompanyBusinessUnitUuidTest extends Unit
     protected const COMPANY_BUSINESS_UNIT_UUID = 'uuid-sample';
 
     /**
-     * @var \SprykerTest\Zed\CompanyBusinessUnitSalesConnector\CompanyBusinessUnitSalesConnectorTester
+     * @var \SprykerTest\Zed\CompanyBusinessUnitSalesConnector\CompanyBusinessUnitSalesConnectorBusinessTester
      */
     protected $tester;
 

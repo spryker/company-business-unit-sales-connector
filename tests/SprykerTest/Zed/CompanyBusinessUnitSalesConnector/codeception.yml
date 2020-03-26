@@ -14,7 +14,7 @@ coverage:
 suites:
     Business:
         path: Business
-        class_name: CompanyBusinessUnitSalesConnectorTester
+        class_name: CompanyBusinessUnitSalesConnectorBusinessTester
         modules:
             enabled:
                 - Asserts
