@@ -11,7 +11,6 @@ use Codeception\Test\Unit;
 use Generated\Shared\Transfer\FilterFieldTransfer;
 use Generated\Shared\Transfer\QueryJoinCollectionTransfer;
 use Generated\Shared\Transfer\QueryWhereConditionTransfer;
-use Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Expander\OrderSearchQueryExpander;
 use Spryker\Zed\CompanyBusinessUnitSalesConnector\CompanyBusinessUnitSalesConnectorConfig;
 
 /**
@@ -27,6 +26,11 @@ use Spryker\Zed\CompanyBusinessUnitSalesConnector\CompanyBusinessUnitSalesConnec
  */
 class ExpandQueryJoinCollectionWithCustomerFilterTest extends Unit
 {
+    /**
+     * @uses \Spryker\Zed\Sales\Persistence\Propel\QueryBuilder\OrderSearchFilterFieldQueryBuilder::CONDITION_GROUP_ALL
+     */
+    protected const CONDITION_GROUP_ALL = 'CONDITION_GROUP_ALL';
+
     /**
      * @uses \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Expander\OrderSearchQueryExpander::COLUMN_FULL_NAME
      */
@@ -138,7 +142,7 @@ class ExpandQueryJoinCollectionWithCustomerFilterTest extends Unit
         string $expectedColumn,
         string $expectedValue
     ): void {
-        $this->assertSame(OrderSearchQueryExpander::CONDITION_GROUP_ALL, $queryWhereConditionTransfer->getMergeWithCondition());
+        $this->assertSame(static::CONDITION_GROUP_ALL, $queryWhereConditionTransfer->getMergeWithCondition());
         $this->assertSame($expectedColumn, $queryWhereConditionTransfer->getColumn());
         $this->assertSame($expectedValue, $queryWhereConditionTransfer->getValue());
     }

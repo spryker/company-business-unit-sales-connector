@@ -16,11 +16,11 @@ use Spryker\Zed\SalesExtension\Dependency\Plugin\OrderSearchQueryExpanderPluginI
  * @method \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\CompanyBusinessUnitSalesConnectorFacadeInterface getFacade()
  * @method \Spryker\Zed\CompanyBusinessUnitSalesConnector\CompanyBusinessUnitSalesConnectorConfig getConfig()
  */
-class CustomerSortingOrderSearchQueryExpanderPlugin extends AbstractPlugin implements OrderSearchQueryExpanderPluginInterface
+class CompanyBusinessUnitCustomerFilterOrderSearchQueryExpanderPlugin extends AbstractPlugin implements OrderSearchQueryExpanderPluginInterface
 {
     /**
      * {@inheritDoc}
-     * - Returns true if sorting by customer name or email could be applied, false otherwise.
+     * - Returns true if filtering by customer name and email could be applied, false otherwise.
      *
      * @api
      *
@@ -32,13 +32,13 @@ class CustomerSortingOrderSearchQueryExpanderPlugin extends AbstractPlugin imple
     {
         return $this->getFacade()->isFilterFieldSet(
             $filterFieldTransfers,
-            CompanyBusinessUnitSalesConnectorConfig::FILTER_FIELD_TYPE_ORDER_BY
+            CompanyBusinessUnitSalesConnectorConfig::FILTER_FIELD_TYPE_COMPANY_BUSINESS_UNIT
         );
     }
 
     /**
      * {@inheritDoc}
-     * - Expands QueryJoinCollectionTransfer with additional QueryJoinTransfers to sort by customer name or email.
+     * - Expands QueryJoinCollectionTransfer with additional QueryJoinTransfers to filter by customer name and email.
      *
      * @api
      *
@@ -51,7 +51,7 @@ class CustomerSortingOrderSearchQueryExpanderPlugin extends AbstractPlugin imple
         array $filterFieldTransfers,
         QueryJoinCollectionTransfer $queryJoinCollectionTransfer
     ): QueryJoinCollectionTransfer {
-        return $this->getFacade()->expandQueryJoinCollectionWithCustomerSorting(
+        return $this->getFacade()->expandQueryJoinCollectionWithCustomerFilter(
             $filterFieldTransfers,
             $queryJoinCollectionTransfer
         );

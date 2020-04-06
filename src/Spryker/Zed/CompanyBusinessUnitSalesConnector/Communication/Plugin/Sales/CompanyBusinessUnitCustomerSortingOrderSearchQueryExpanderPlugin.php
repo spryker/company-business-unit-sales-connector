@@ -16,11 +16,11 @@ use Spryker\Zed\SalesExtension\Dependency\Plugin\OrderSearchQueryExpanderPluginI
  * @method \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\CompanyBusinessUnitSalesConnectorFacadeInterface getFacade()
  * @method \Spryker\Zed\CompanyBusinessUnitSalesConnector\CompanyBusinessUnitSalesConnectorConfig getConfig()
  */
-class CustomerFilterOrderSearchQueryExpanderPlugin extends AbstractPlugin implements OrderSearchQueryExpanderPluginInterface
+class CompanyBusinessUnitCustomerSortingOrderSearchQueryExpanderPlugin extends AbstractPlugin implements OrderSearchQueryExpanderPluginInterface
 {
     /**
      * {@inheritDoc}
-     * - Returns true if filtering by customer name and email could be applied, false otherwise.
+     * - Returns true if sorting by customer name or email could be applied, false otherwise.
      *
      * @api
      *
@@ -30,22 +30,15 @@ class CustomerFilterOrderSearchQueryExpanderPlugin extends AbstractPlugin implem
      */
     public function isApplicable(array $filterFieldTransfers): bool
     {
-        $isCompanyBusinessUnitFilterFieldSet = $this->getFacade()->isFilterFieldSet(
+        return $this->getFacade()->isFilterFieldSet(
             $filterFieldTransfers,
             CompanyBusinessUnitSalesConnectorConfig::FILTER_FIELD_TYPE_COMPANY_BUSINESS_UNIT
         );
-
-        $isCompanyFilterFieldSet = $this->getFacade()->isFilterFieldSet(
-            $filterFieldTransfers,
-            CompanyBusinessUnitSalesConnectorConfig::FILTER_FIELD_TYPE_COMPANY
-        );
-
-        return $isCompanyBusinessUnitFilterFieldSet || $isCompanyFilterFieldSet;
     }
 
     /**
      * {@inheritDoc}
-     * - Expands QueryJoinCollectionTransfer with additional QueryJoinTransfers to filter by customer name and email.
+     * - Expands QueryJoinCollectionTransfer with additional QueryJoinTransfers to sort by customer name or email.
      *
      * @api
      *
@@ -58,7 +51,7 @@ class CustomerFilterOrderSearchQueryExpanderPlugin extends AbstractPlugin implem
         array $filterFieldTransfers,
         QueryJoinCollectionTransfer $queryJoinCollectionTransfer
     ): QueryJoinCollectionTransfer {
-        return $this->getFacade()->expandQueryJoinCollectionWithCustomerFilter(
+        return $this->getFacade()->expandQueryJoinCollectionWithCustomerSorting(
             $filterFieldTransfers,
             $queryJoinCollectionTransfer
         );
