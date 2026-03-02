@@ -27,11 +27,6 @@ class CompanyBusinessUnitSalesConnectorDependencyProvider extends AbstractBundle
      */
     public const FACADE_SALES = 'FACADE_SALES';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -41,11 +36,6 @@ class CompanyBusinessUnitSalesConnectorDependencyProvider extends AbstractBundle
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addCompanyBusinessUnitFacade(Container $container): Container
     {
         $container->set(static::FACADE_COMPANY_BUSINESS_UNIT, function (Container $container) {
@@ -57,11 +47,6 @@ class CompanyBusinessUnitSalesConnectorDependencyProvider extends AbstractBundle
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addSalesFacade(Container $container): Container
     {
         $container->set(static::FACADE_SALES, function (Container $container) {

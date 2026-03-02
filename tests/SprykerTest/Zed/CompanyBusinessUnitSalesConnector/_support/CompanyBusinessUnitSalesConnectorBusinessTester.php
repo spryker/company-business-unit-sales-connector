@@ -43,11 +43,6 @@ class CompanyBusinessUnitSalesConnectorBusinessTester extends Actor
      */
     protected const DEFAULT_OMS_PROCESS_NAME = 'Test01';
 
-    /**
-     * @param string $permissionKey
-     *
-     * @return \Generated\Shared\Transfer\CompanyUserTransfer
-     */
     public function createCompanyUserWithPermission(string $permissionKey): CompanyUserTransfer
     {
         $companyTransfer = $this->haveCompany();
@@ -81,11 +76,6 @@ class CompanyBusinessUnitSalesConnectorBusinessTester extends Actor
             ->setFkCompany($companyTransfer->getIdCompany());
     }
 
-    /**
-     * @param string $companyBusinessUnitUuid
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteWithCompanyUser(string $companyBusinessUnitUuid): QuoteTransfer
     {
         $companyBusinessUnitTransfer = (new CompanyBusinessUnitTransfer())->setUuid($companyBusinessUnitUuid);
@@ -95,12 +85,6 @@ class CompanyBusinessUnitSalesConnectorBusinessTester extends Actor
         return (new QuoteTransfer())->setCustomer($customerTransfer);
     }
 
-    /**
-     * @param string $orderReference
-     * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\SaveOrderTransfer
-     */
     public function createOrderWithCompanyBusinessUnitUuid(
         string $orderReference,
         CompanyUserTransfer $companyUserTransfer
@@ -114,12 +98,6 @@ class CompanyBusinessUnitSalesConnectorBusinessTester extends Actor
         return $saveOrderTransfer;
     }
 
-    /**
-     * @param string $orderReference
-     * @param string $companyBusinessUnitUuid
-     *
-     * @return void
-     */
     protected function updateOrderCompanyBusinessUnitUuid(string $orderReference, string $companyBusinessUnitUuid): void
     {
         $salesOrderEntity = $this->getSalesOrderQuery()->filterByOrderReference($orderReference)->findOne();
@@ -127,9 +105,6 @@ class CompanyBusinessUnitSalesConnectorBusinessTester extends Actor
         $salesOrderEntity->save();
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderQuery
-     */
     protected function getSalesOrderQuery(): SpySalesOrderQuery
     {
         return SpySalesOrderQuery::create();

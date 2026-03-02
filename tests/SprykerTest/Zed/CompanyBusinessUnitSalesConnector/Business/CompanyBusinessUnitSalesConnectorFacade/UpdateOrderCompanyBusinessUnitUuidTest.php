@@ -38,9 +38,6 @@ class UpdateOrderCompanyBusinessUnitUuidTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -48,9 +45,6 @@ class UpdateOrderCompanyBusinessUnitUuidTest extends Unit
         $this->tester->configureTestStateMachine([static::DEFAULT_OMS_PROCESS_NAME]);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateOrderCompanyBusinessUnitUuidUpdatesUuid(): void
     {
         // Arrange
@@ -69,9 +63,6 @@ class UpdateOrderCompanyBusinessUnitUuidTest extends Unit
         $this->assertSame(static::COMPANY_BUSINESS_UNIT_UUID, $orderTransfer->getCompanyBusinessUnitUuid());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateOrderCompanyBusinessUnitUuidThrowsExceptionForMissingIdSalesOrder(): void
     {
         // Arrange

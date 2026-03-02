@@ -16,21 +16,12 @@ use Spryker\Zed\CompanyBusinessUnitSalesConnector\Dependency\Facade\CompanyBusin
 
 class EditCompanyBusinessUnitOrderQuoteExpander implements EditCompanyBusinessUnitOrderQuoteExpanderInterface
 {
-    /**
-     * @param \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Checker\EditCompanyBusinessUnitOrdersPermissionCheckerInterface $editCompanyBusinessUnitOrdersPermissionChecker
-     * @param \Spryker\Zed\CompanyBusinessUnitSalesConnector\Dependency\Facade\CompanyBusinessUnitSalesConnectorToSalesFacadeInterface $salesFacade
-     */
     public function __construct(
         protected EditCompanyBusinessUnitOrdersPermissionCheckerInterface $editCompanyBusinessUnitOrdersPermissionChecker,
         protected CompanyBusinessUnitSalesConnectorToSalesFacadeInterface $salesFacade
     ) {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function expandQuoteWithOriginalOrder(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         if ($quoteTransfer->getOriginalOrder()) {
@@ -63,11 +54,6 @@ class EditCompanyBusinessUnitOrderQuoteExpander implements EditCompanyBusinessUn
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer|null
-     */
     protected function findOrder(QuoteTransfer $quoteTransfer): ?OrderTransfer
     {
         $orderFilterTransfer = (new OrderFilterTransfer())

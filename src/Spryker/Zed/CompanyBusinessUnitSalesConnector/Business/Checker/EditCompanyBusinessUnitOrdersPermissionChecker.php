@@ -24,19 +24,11 @@ class EditCompanyBusinessUnitOrdersPermissionChecker implements EditCompanyBusin
      */
     protected const PERMISSION_KEY = 'EditBusinessUnitOrdersPermissionPlugin';
 
-    /**
-     * @param \Spryker\Zed\CompanyBusinessUnitSalesConnector\Dependency\Facade\CompanyBusinessUnitSalesConnectorToCompanyBusinessUnitFacadeInterface $companyBusinessUnitFacade
-     */
     public function __construct(
         protected CompanyBusinessUnitSalesConnectorToCompanyBusinessUnitFacadeInterface $companyBusinessUnitFacade
     ) {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderRequestTransfer $cartReorderRequestTransfer
-     *
-     * @return bool
-     */
     public function isEditCompanyBusinessUnitOrderCartReorderAllowed(
         CartReorderRequestTransfer $cartReorderRequestTransfer
     ): bool {
@@ -49,11 +41,6 @@ class EditCompanyBusinessUnitOrdersPermissionChecker implements EditCompanyBusin
         return $this->isEditCompanyBusinessUnitOrderAllowed($companyUserTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer
-     *
-     * @return bool
-     */
     public function isEditCompanyBusinessUnitOrderAllowed(CompanyUserTransfer $companyUserTransfer): bool
     {
         if (!$this->hasEditOrderPermission($companyUserTransfer)) {
@@ -65,12 +52,6 @@ class EditCompanyBusinessUnitOrdersPermissionChecker implements EditCompanyBusin
         return (bool)$companyUserTransfer->getCompanyBusinessUnit();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer|null $orderTransfer
-     * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer
-     *
-     * @return bool
-     */
     public function isOrderBelongsToCompanyBusinessUnit(
         ?OrderTransfer $orderTransfer,
         CompanyUserTransfer $companyUserTransfer
@@ -82,11 +63,6 @@ class EditCompanyBusinessUnitOrdersPermissionChecker implements EditCompanyBusin
         return $orderTransfer->getCompanyBusinessUnitUuid() === $companyUserTransfer->getCompanyBusinessUnit()->getUuid();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderRequestTransfer $cartReorderRequestTransfer
-     *
-     * @return bool
-     */
     protected function isValidCompanyUser(CartReorderRequestTransfer $cartReorderRequestTransfer): bool
     {
         $companyUserTransfer = $cartReorderRequestTransfer->getCompanyUserTransfer();
@@ -94,21 +70,11 @@ class EditCompanyBusinessUnitOrdersPermissionChecker implements EditCompanyBusin
         return (bool)$companyUserTransfer?->getIdCompanyUser();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer
-     *
-     * @return bool
-     */
     protected function hasEditOrderPermission(CompanyUserTransfer $companyUserTransfer): bool
     {
         return $this->can(static::PERMISSION_KEY, $companyUserTransfer->getIdCompanyUserOrFail());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\CompanyUserTransfer
-     */
     protected function expandWithCompanyBusinessUnit(CompanyUserTransfer $companyUserTransfer): CompanyUserTransfer
     {
         if (!$companyUserTransfer->getCompanyBusinessUnit() && $companyUserTransfer->getFkCompanyBusinessUnit()) {

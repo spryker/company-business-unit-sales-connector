@@ -13,28 +13,12 @@ use Generated\Shared\Transfer\OrderTransfer;
 
 interface EditCompanyBusinessUnitOrdersPermissionCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderRequestTransfer $cartReorderRequestTransfer
-     *
-     * @return bool
-     */
     public function isEditCompanyBusinessUnitOrderCartReorderAllowed(
         CartReorderRequestTransfer $cartReorderRequestTransfer
     ): bool;
 
-    /**
-     * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer
-     *
-     * @return bool
-     */
     public function isEditCompanyBusinessUnitOrderAllowed(CompanyUserTransfer $companyUserTransfer): bool;
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer|null $orderTransfer
-     * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer
-     *
-     * @return bool
-     */
     public function isOrderBelongsToCompanyBusinessUnit(
         ?OrderTransfer $orderTransfer,
         CompanyUserTransfer $companyUserTransfer

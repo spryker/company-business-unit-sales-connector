@@ -29,31 +29,16 @@ class CompanyBusinessUnitSalesConnectorToSalesFacadeBridge implements CompanyBus
         $this->salesFacade = $salesFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderCriteriaTransfer $orderCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderCollectionTransfer
-     */
     public function getOrderCollection(OrderCriteriaTransfer $orderCriteriaTransfer): OrderCollectionTransfer
     {
         return $this->salesFacade->getOrderCollection($orderCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderListRequestTransfer $orderListRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderListTransfer
-     */
     public function getOffsetPaginatedCustomerOrderList(OrderListRequestTransfer $orderListRequestTransfer): OrderListTransfer
     {
         return $this->salesFacade->getOffsetPaginatedCustomerOrderList($orderListRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderFilterTransfer $orderFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function getOrder(OrderFilterTransfer $orderFilterTransfer): OrderTransfer
     {
         return $this->salesFacade->getOrder($orderFilterTransfer);

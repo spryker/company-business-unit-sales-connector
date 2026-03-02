@@ -52,9 +52,6 @@ class ExpandQueryJoinCollectionWithCustomerSortingTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandQueryJoinCollectionWithCustomerSortingExpandsCollectionForCustomerEmail(): void
     {
         // Arrange
@@ -78,9 +75,6 @@ class ExpandQueryJoinCollectionWithCustomerSortingTest extends Unit
         $this->assertQueryJoinTransfer($queryJoinTransfer, static::COLUMN_EMAIL, 'ASC');
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQueryJoinCollectionWithCustomerSortingExpandsCollectionForCustomerName(): void
     {
         // Arrange
@@ -104,9 +98,6 @@ class ExpandQueryJoinCollectionWithCustomerSortingTest extends Unit
         $this->assertQueryJoinTransfer($queryJoinTransfer, static::COLUMN_FULL_NAME, 'DESC');
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQueryJoinCollectionWithCustomerSortingIgnoresIrrelevantFilterFields(): void
     {
         // Arrange
@@ -126,13 +117,6 @@ class ExpandQueryJoinCollectionWithCustomerSortingTest extends Unit
         $this->assertCount(0, $queryJoinCollectionTransfer->getQueryJoins());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QueryJoinTransfer $queryJoinTransfer
-     * @param string $expectedOrderBy
-     * @param string $expectedOrderDirection
-     *
-     * @return void
-     */
     protected function assertQueryJoinTransfer(
         QueryJoinTransfer $queryJoinTransfer,
         string $expectedOrderBy,

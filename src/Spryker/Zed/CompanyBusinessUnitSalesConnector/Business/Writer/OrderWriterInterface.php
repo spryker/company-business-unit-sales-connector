@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\SaveOrderTransfer;
 
 interface OrderWriterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function updateOrderCompanyBusinessUnitUuid(
         SaveOrderTransfer $saveOrderTransfer,
         QuoteTransfer $quoteTransfer

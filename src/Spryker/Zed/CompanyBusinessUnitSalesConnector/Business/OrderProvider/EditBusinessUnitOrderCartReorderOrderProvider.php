@@ -17,21 +17,12 @@ use Spryker\Zed\CompanyBusinessUnitSalesConnector\Dependency\Facade\CompanyBusin
 
 class EditBusinessUnitOrderCartReorderOrderProvider implements EditBusinessUnitOrderCartReorderOrderProviderInterface
 {
-    /**
-     * @param \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Checker\EditCompanyBusinessUnitOrdersPermissionCheckerInterface $editCompanyBusinessUnitOrdersPermissionChecker
-     * @param \Spryker\Zed\CompanyBusinessUnitSalesConnector\Dependency\Facade\CompanyBusinessUnitSalesConnectorToSalesFacadeInterface $salesFacade
-     */
     public function __construct(
         protected EditCompanyBusinessUnitOrdersPermissionCheckerInterface $editCompanyBusinessUnitOrdersPermissionChecker,
         protected CompanyBusinessUnitSalesConnectorToSalesFacadeInterface $salesFacade
     ) {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderRequestTransfer $cartReorderRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer|null
-     */
     public function findOrder(CartReorderRequestTransfer $cartReorderRequestTransfer): ?OrderTransfer
     {
         if (!$cartReorderRequestTransfer->getIsAmendment()) {
@@ -68,11 +59,6 @@ class EditBusinessUnitOrderCartReorderOrderProvider implements EditBusinessUnitO
             ->current();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderRequestTransfer $cartReorderRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer|null
-     */
     protected function findOrderByOrderReference(CartReorderRequestTransfer $cartReorderRequestTransfer): ?OrderTransfer
     {
         $orderCriteriaTransfer = (new OrderCriteriaTransfer())

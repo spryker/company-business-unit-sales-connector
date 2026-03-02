@@ -49,9 +49,6 @@ class ExpandQueryJoinCollectionWithCompanyBusinessUnitFilterTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandQueryJoinCollectionWithCompanyBusinessUnitFilterExpandsCollection(): void
     {
         // Arrange
@@ -87,9 +84,6 @@ class ExpandQueryJoinCollectionWithCompanyBusinessUnitFilterTest extends Unit
         $this->assertSame(static::COMPARISON_EQUAL, $queryWhereConditionTransfer->getComparison());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQueryJoinCollectionWithCompanyBusinessUnitFilterIgnoresIrrelevantFilterFields(): void
     {
         // Arrange

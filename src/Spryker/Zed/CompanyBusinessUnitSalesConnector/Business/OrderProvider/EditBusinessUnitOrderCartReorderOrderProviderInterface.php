@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\OrderTransfer;
 
 interface EditBusinessUnitOrderCartReorderOrderProviderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderRequestTransfer $cartReorderRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer|null
-     */
     public function findOrder(CartReorderRequestTransfer $cartReorderRequestTransfer): ?OrderTransfer;
 }

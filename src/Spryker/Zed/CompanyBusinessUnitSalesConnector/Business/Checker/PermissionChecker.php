@@ -15,12 +15,6 @@ class PermissionChecker implements PermissionCheckerInterface
 {
     use PermissionAwareTrait;
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return bool
-     */
     public function checkOrderAccessByCustomerBusinessUnit(OrderTransfer $orderTransfer, CustomerTransfer $customerTransfer): bool
     {
         if (!$this->hasCompanyBusinessUnit($orderTransfer, $customerTransfer)) {
@@ -34,12 +28,6 @@ class PermissionChecker implements PermissionCheckerInterface
         return $this->can('SeeBusinessUnitOrdersPermissionPlugin', $customerTransfer->getCompanyUserTransfer()->getIdCompanyUser());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return bool
-     */
     protected function hasCompanyBusinessUnit(OrderTransfer $orderTransfer, CustomerTransfer $customerTransfer): bool
     {
         if (!$orderTransfer->getCompanyBusinessUnitUuid()) {

@@ -18,20 +18,11 @@ class OrderWriter implements OrderWriterInterface
      */
     protected $companyBusinessUnitSalesConnectorEntityManager;
 
-    /**
-     * @param \Spryker\Zed\CompanyBusinessUnitSalesConnector\Persistence\CompanyBusinessUnitSalesConnectorEntityManagerInterface $companyBusinessUnitSalesConnectorEntityManager
-     */
     public function __construct(CompanyBusinessUnitSalesConnectorEntityManagerInterface $companyBusinessUnitSalesConnectorEntityManager)
     {
         $this->companyBusinessUnitSalesConnectorEntityManager = $companyBusinessUnitSalesConnectorEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function updateOrderCompanyBusinessUnitUuid(
         SaveOrderTransfer $saveOrderTransfer,
         QuoteTransfer $quoteTransfer
@@ -50,11 +41,6 @@ class OrderWriter implements OrderWriterInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return string|null
-     */
     protected function extractCompanyBusinessUnitUuidFromQuote(QuoteTransfer $quoteTransfer): ?string
     {
         if (!$quoteTransfer->getCustomer()) {

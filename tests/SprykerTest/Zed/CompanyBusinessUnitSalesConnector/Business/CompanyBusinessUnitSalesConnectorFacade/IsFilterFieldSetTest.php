@@ -33,9 +33,6 @@ class IsFilterFieldSetTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testIsFilterFieldSetReturnsTrue(): void
     {
         // Arrange
@@ -49,9 +46,6 @@ class IsFilterFieldSetTest extends Unit
         $this->assertTrue($isApplicable);
     }
 
-    /**
-     * @return void
-     */
     public function testIsFilterFieldSetReturnsFalse(): void
     {
         // Arrange

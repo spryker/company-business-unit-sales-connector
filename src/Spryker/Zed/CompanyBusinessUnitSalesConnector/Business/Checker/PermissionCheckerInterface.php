@@ -12,11 +12,5 @@ use Generated\Shared\Transfer\OrderTransfer;
 
 interface PermissionCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return bool
-     */
     public function checkOrderAccessByCustomerBusinessUnit(OrderTransfer $orderTransfer, CustomerTransfer $customerTransfer): bool;
 }

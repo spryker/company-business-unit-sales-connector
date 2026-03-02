@@ -64,9 +64,6 @@ class ExpandQueryJoinCollectionWithCustomerFilterTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandQueryJoinCollectionWithCustomerFilterExpandsCollection(): void
     {
         // Arrange
@@ -119,9 +116,6 @@ class ExpandQueryJoinCollectionWithCustomerFilterTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQueryJoinCollectionWithCustomerFilterIgnoresIrrelevantFilterFields(): void
     {
         // Arrange
@@ -141,13 +135,6 @@ class ExpandQueryJoinCollectionWithCustomerFilterTest extends Unit
         $this->assertCount(0, $queryJoinCollectionTransfer->getQueryJoins());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QueryWhereConditionTransfer $queryWhereConditionTransfer
-     * @param string $expectedColumn
-     * @param string $expectedValue
-     *
-     * @return void
-     */
     protected function assertQueryWhereConditionTransfer(
         QueryWhereConditionTransfer $queryWhereConditionTransfer,
         string $expectedColumn,

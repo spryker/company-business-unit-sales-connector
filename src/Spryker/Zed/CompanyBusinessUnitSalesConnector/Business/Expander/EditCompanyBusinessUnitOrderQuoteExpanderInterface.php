@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface EditCompanyBusinessUnitOrderQuoteExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function expandQuoteWithOriginalOrder(QuoteTransfer $quoteTransfer): QuoteTransfer;
 }

@@ -58,9 +58,6 @@ class EditBusinessUnitOrderQuoteExpanderCheckoutPreSavePluginTest extends Unit
      */
     protected CompanyBusinessUnitSalesConnectorBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -72,9 +69,6 @@ class EditBusinessUnitOrderQuoteExpanderCheckoutPreSavePluginTest extends Unit
         $this->tester->preparePermissionStorageDependency(new PermissionStoragePlugin());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveExpandsQuoteWithOriginalOrderWhenUserHasPermissionAndOrderBelongsToBusinessUnit(): void
     {
         // Arrange
@@ -98,9 +92,6 @@ class EditBusinessUnitOrderQuoteExpanderCheckoutPreSavePluginTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveDoesNothingWhenOriginalOrderIsAlreadySet(): void
     {
         // Arrange
@@ -126,9 +117,6 @@ class EditBusinessUnitOrderQuoteExpanderCheckoutPreSavePluginTest extends Unit
         $this->assertSame('ORIGINAL-ORDER', $resultQuoteTransfer->getOriginalOrder()->getOrderReference());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveDoesNothingWhenUserDoesNotHavePermission(): void
     {
         // Arrange
@@ -149,9 +137,6 @@ class EditBusinessUnitOrderQuoteExpanderCheckoutPreSavePluginTest extends Unit
         $this->assertNull($resultQuoteTransfer->getOriginalOrder());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveDoesNothingWhenOrderDoesNotBelongToBusinessUnit(): void
     {
         // Arrange
@@ -175,9 +160,6 @@ class EditBusinessUnitOrderQuoteExpanderCheckoutPreSavePluginTest extends Unit
         $this->assertNull($resultQuoteTransfer->getOriginalOrder());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveDoesNothingWhenCompanyUserTransferIsNotProvided(): void
     {
         // Arrange
@@ -194,9 +176,6 @@ class EditBusinessUnitOrderQuoteExpanderCheckoutPreSavePluginTest extends Unit
         $this->assertNull($resultQuoteTransfer->getOriginalOrder());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveDoesNothingWhenOrderReferenceIsInvalid(): void
     {
         // Arrange

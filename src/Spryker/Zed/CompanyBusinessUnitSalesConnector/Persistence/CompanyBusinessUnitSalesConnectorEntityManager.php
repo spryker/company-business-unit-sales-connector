@@ -15,12 +15,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class CompanyBusinessUnitSalesConnectorEntityManager extends AbstractEntityManager implements CompanyBusinessUnitSalesConnectorEntityManagerInterface
 {
-    /**
-     * @param int $idSalesOrder
-     * @param string $companyBusinessUnitUuid
-     *
-     * @return void
-     */
     public function updateOrderCompanyBusinessUnitUuid(int $idSalesOrder, string $companyBusinessUnitUuid): void
     {
         $this->getFactory()

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\CompanyBusinessUnitTransfer;
 
 interface CompanyBusinessUnitSalesConnectorToCompanyBusinessUnitFacadeInterface
 {
-    /**
-     * @param int $idCompanyBusinessUnit
-     *
-     * @return \Generated\Shared\Transfer\CompanyBusinessUnitTransfer|null
-     */
     public function findCompanyBusinessUnitById(int $idCompanyBusinessUnit): ?CompanyBusinessUnitTransfer;
 }

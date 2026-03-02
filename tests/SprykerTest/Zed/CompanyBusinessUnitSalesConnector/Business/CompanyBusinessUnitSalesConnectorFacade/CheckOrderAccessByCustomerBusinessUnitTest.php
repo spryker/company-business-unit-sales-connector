@@ -44,9 +44,6 @@ class CheckOrderAccessByCustomerBusinessUnitTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -61,9 +58,6 @@ class CheckOrderAccessByCustomerBusinessUnitTest extends Unit
         $this->tester->getLocator()->permission()->facade()->syncPermissionPlugins();
     }
 
-    /**
-     * @return void
-     */
     public function testCheckOrderAccessByCustomerBusinessUnit(): void
     {
         // Arrange
@@ -85,9 +79,6 @@ class CheckOrderAccessByCustomerBusinessUnitTest extends Unit
         $this->assertTrue($isPermissionGranted);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckOrderAccessByCustomerBusinessUnitWithoutCompanyBusinessUuid(): void
     {
         // Arrange
@@ -109,9 +100,6 @@ class CheckOrderAccessByCustomerBusinessUnitTest extends Unit
         $this->assertFalse($isPermissionGranted);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckOrderAccessByCustomerBusinessUnitWithoutCompanyUser(): void
     {
         // Arrange
@@ -133,9 +121,6 @@ class CheckOrderAccessByCustomerBusinessUnitTest extends Unit
         $this->assertFalse($isPermissionGranted);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckOrderAccessByCustomerBusinessUnitWithoutIdCompanyUser(): void
     {
         // Arrange
@@ -157,9 +142,6 @@ class CheckOrderAccessByCustomerBusinessUnitTest extends Unit
         $this->assertFalse($isPermissionGranted);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckOrderAccessByCustomerBusinessUnitWithoutCompanyBusinessUnit(): void
     {
         // Arrange
@@ -181,9 +163,6 @@ class CheckOrderAccessByCustomerBusinessUnitTest extends Unit
         $this->assertFalse($isPermissionGranted);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckOrderAccessByCustomerBusinessUnitWithDifferentBusinessUnitUuids(): void
     {
         // Arrange

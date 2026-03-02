@@ -28,11 +28,6 @@ class CompanyBusinessUnitSalesConnectorToCompanyBusinessUnitFacadeBridge impleme
         $this->companyBusinessUnitFacade = $companyBusinessUnitFacade;
     }
 
-    /**
-     * @param int $idCompanyBusinessUnit
-     *
-     * @return \Generated\Shared\Transfer\CompanyBusinessUnitTransfer|null
-     */
     public function findCompanyBusinessUnitById(int $idCompanyBusinessUnit): ?CompanyBusinessUnitTransfer
     {
         return $this->companyBusinessUnitFacade->findCompanyBusinessUnitById($idCompanyBusinessUnit);

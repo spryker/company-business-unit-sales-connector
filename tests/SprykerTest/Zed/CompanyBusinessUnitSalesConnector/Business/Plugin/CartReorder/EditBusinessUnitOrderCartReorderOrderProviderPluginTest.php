@@ -57,9 +57,6 @@ class EditBusinessUnitOrderCartReorderOrderProviderPluginTest extends Unit
      */
     protected CompanyBusinessUnitSalesConnectorBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -71,9 +68,6 @@ class EditBusinessUnitOrderCartReorderOrderProviderPluginTest extends Unit
         $this->tester->preparePermissionStorageDependency(new PermissionStoragePlugin());
     }
 
-    /**
-     * @return void
-     */
     public function testFindOrderReturnsOrderWhenUserHasPermissionAndOrderBelongsToBusinessUnit(): void
     {
         // Arrange
@@ -97,9 +91,6 @@ class EditBusinessUnitOrderCartReorderOrderProviderPluginTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testFindOrderReturnsNullWhenIsAmendmentIsNotTrue(): void
     {
         // Arrange
@@ -117,9 +108,6 @@ class EditBusinessUnitOrderCartReorderOrderProviderPluginTest extends Unit
         $this->assertNull($orderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindOrderReturnsNullWhenUserDoesNotHavePermission(): void
     {
         // Arrange
@@ -138,9 +126,6 @@ class EditBusinessUnitOrderCartReorderOrderProviderPluginTest extends Unit
         $this->assertNull($orderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindOrderReturnsNullWhenOrderDoesNotBelongToBusinessUnit(): void
     {
         // Arrange
@@ -161,9 +146,6 @@ class EditBusinessUnitOrderCartReorderOrderProviderPluginTest extends Unit
         $this->assertNull($orderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindOrderReturnsNullWhenOrderReferenceIsInvalid(): void
     {
         // Arrange
@@ -180,9 +162,6 @@ class EditBusinessUnitOrderCartReorderOrderProviderPluginTest extends Unit
         $this->assertNull($orderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testFindOrderReturnsNullWhenCompanyUserIsNotProvided(): void
     {
         // Arrange

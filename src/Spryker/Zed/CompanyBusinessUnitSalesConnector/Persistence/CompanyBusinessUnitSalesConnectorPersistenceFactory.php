@@ -16,9 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class CompanyBusinessUnitSalesConnectorPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderQuery
-     */
     public function getSalesOrderPropelQuery(): SpySalesOrderQuery
     {
         return SpySalesOrderQuery::create();

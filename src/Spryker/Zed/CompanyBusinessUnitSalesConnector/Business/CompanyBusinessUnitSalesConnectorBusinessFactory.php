@@ -32,9 +32,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class CompanyBusinessUnitSalesConnectorBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Writer\OrderWriterInterface
-     */
     public function createOrderWriter(): OrderWriterInterface
     {
         return new OrderWriter(
@@ -42,33 +39,21 @@ class CompanyBusinessUnitSalesConnectorBusinessFactory extends AbstractBusinessF
         );
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Checker\PermissionCheckerInterface
-     */
     public function createPermissionChecker(): PermissionCheckerInterface
     {
         return new PermissionChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Expander\OrderSearchQueryExpanderInterface
-     */
     public function createOrderSearchQueryExpander(): OrderSearchQueryExpanderInterface
     {
         return new OrderSearchQueryExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Checker\FilterFieldCheckerInterface
-     */
     public function createFilterFieldChecker(): FilterFieldCheckerInterface
     {
         return new FilterFieldChecker();
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\OrderProvider\EditBusinessUnitOrderCartReorderOrderProviderInterface
-     */
     public function createEditBusinessUnitOrderCartReorderOrderProvider(): EditBusinessUnitOrderCartReorderOrderProviderInterface
     {
         return new EditBusinessUnitOrderCartReorderOrderProvider(
@@ -77,17 +62,11 @@ class CompanyBusinessUnitSalesConnectorBusinessFactory extends AbstractBusinessF
         );
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Checker\EditCompanyBusinessUnitOrdersPermissionCheckerInterface
-     */
     public function createEditCompanyBusinessUnitOrdersPermissionChecker(): EditCompanyBusinessUnitOrdersPermissionCheckerInterface
     {
         return new EditCompanyBusinessUnitOrdersPermissionChecker($this->getCompanyBusinessUnitFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Business\Expander\EditCompanyBusinessUnitOrderQuoteExpanderInterface
-     */
     public function createEditCompanyBusinessUnitOrderQuoteExpander(): EditCompanyBusinessUnitOrderQuoteExpanderInterface
     {
         return new EditCompanyBusinessUnitOrderQuoteExpander(
@@ -96,17 +75,11 @@ class CompanyBusinessUnitSalesConnectorBusinessFactory extends AbstractBusinessF
         );
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Dependency\Facade\CompanyBusinessUnitSalesConnectorToCompanyBusinessUnitFacadeInterface
-     */
     public function getCompanyBusinessUnitFacade(): CompanyBusinessUnitSalesConnectorToCompanyBusinessUnitFacadeInterface
     {
         return $this->getProvidedDependency(CompanyBusinessUnitSalesConnectorDependencyProvider::FACADE_COMPANY_BUSINESS_UNIT);
     }
 
-    /**
-     * @return \Spryker\Zed\CompanyBusinessUnitSalesConnector\Dependency\Facade\CompanyBusinessUnitSalesConnectorToSalesFacadeInterface
-     */
     public function getSalesFacade(): CompanyBusinessUnitSalesConnectorToSalesFacadeInterface
     {
         return $this->getProvidedDependency(CompanyBusinessUnitSalesConnectorDependencyProvider::FACADE_SALES);

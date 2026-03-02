@@ -177,11 +177,6 @@ class OrderSearchQueryExpander implements OrderSearchQueryExpanderInterface
         return null;
     }
 
-    /**
-     * @param string $companyBusinessUnitUuid
-     *
-     * @return \Generated\Shared\Transfer\QueryJoinTransfer
-     */
     protected function createCompanyBusinessUnitFilterQueryJoin(string $companyBusinessUnitUuid): QueryJoinTransfer
     {
         $queryWhereConditionTransfer = (new QueryWhereConditionTransfer())
@@ -192,11 +187,6 @@ class OrderSearchQueryExpander implements OrderSearchQueryExpanderInterface
         return (new QueryJoinTransfer())->addQueryWhereCondition($queryWhereConditionTransfer);
     }
 
-    /**
-     * @param string $searchString
-     *
-     * @return \Generated\Shared\Transfer\QueryJoinTransfer
-     */
     protected function createCustomerFilterQueryJoin(string $searchString): QueryJoinTransfer
     {
         $queryJoinTransfer = new QueryJoinTransfer();
@@ -219,12 +209,6 @@ class OrderSearchQueryExpander implements OrderSearchQueryExpanderInterface
         return $queryJoinTransfer->setWithColumns([static::COLUMN_FULL_NAME => $fullNameColumn]);
     }
 
-    /**
-     * @param string $orderBy
-     * @param string $orderDirection
-     *
-     * @return \Generated\Shared\Transfer\QueryJoinTransfer
-     */
     protected function createCustomerSortingQueryJoin(string $orderBy, string $orderDirection): QueryJoinTransfer
     {
         return (new QueryJoinTransfer())
@@ -233,9 +217,6 @@ class OrderSearchQueryExpander implements OrderSearchQueryExpanderInterface
             ->setOrderDirection($orderDirection);
     }
 
-    /**
-     * @return string
-     */
     protected function getConcatenatedFullNameColumn(): string
     {
         return sprintf('CONCAT(%s,\' \', %s)', static::COLUMN_FIRST_NAME, static::COLUMN_LAST_NAME);
